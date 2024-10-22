@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -8,33 +9,91 @@ body {
 
 header {
     text-align: center;
-    background-color: #ffcc00;
-    padding: 20px;
+    background-color: #ffcc00; /* Gold color for festive theme */
+    padding: 40px 20px;
+    position: relative;
+    border-bottom: 5px solid #007bff; /* Blue border for contrast */
 }
 
 h1 {
     font-size: 2.5em;
+    margin: 0;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    margin: 10px 0 20px 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .story, .tales {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff; /* White background for content */
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s; /* Smooth transition */
+}
+
+.story:hover, .tales:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Hover effect */
 }
 
 footer {
     text-align: center;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 20px;
+    background-color: #007bff; /* Blue background for footer */
     color: white;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+footer h4 {
+    margin: 10px 0;
+}
+
+footer p {
+    margin: 5px 0 20px 0;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px; /* Adjust icon size */
+    margin: 0 10px;
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* Grow effect on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    header {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em; /* Responsive font size */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Responsive font size */
+    }
+
+    .story, .tales {
+        padding: 15px;
+    }
 }
