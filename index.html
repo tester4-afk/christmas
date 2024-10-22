@@ -4,49 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XMAS Coin - The Official Coin of Christmas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS -->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
             color: #343a40;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Snow Animation */
+        .snow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: #ffffff;
+            font-size: 1.5em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 100%; }
         }
 
         header {
             text-align: center;
             background-color: #ffcc00;
-            padding: 20px;
+            padding: 40px 20px;
             position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 2; /* Above snowflakes */
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
+            margin: 0;
         }
 
         h2 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin: 10px 0 20px;
         }
 
         .hero-image {
             width: 100%;
             height: auto;
             border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .story, .tales {
+        nav {
+            background: #007bff;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        section {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2; /* Above snowflakes */
         }
 
-        .story p, .tales p {
+        section h3 {
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        p {
             line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .countdown {
+            font-size: 2em;
+            text-align: center;
+            margin: 20px 0;
+            color: #ff5722;
         }
 
         footer {
@@ -57,49 +130,112 @@
             position: relative;
             bottom: 0;
             width: 100%;
+            z-index: 2; /* Above snowflakes */
         }
 
         .social-icons img {
             width: 30px;
             margin: 0 10px;
+            transition: transform 0.2s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: calc(33.333% - 10px);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
+    <!-- Snow Animation -->
+    <div class="snow">
+        <div class="snowflake" style="left: 10%; animation-duration: 10s;">❄️</div>
+        <div class="snowflake" style="left: 30%; animation-duration: 8s;">❄️</div>
+        <div class="snowflake" style="left: 50%; animation-duration: 12s;">❄️</div>
+        <div class="snowflake" style="left: 70%; animation-duration: 9s;">❄️</div>
+        <div class="snowflake" style="left: 90%; animation-duration: 11s;">❄️</div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#tales">Tales</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>🎅🎄 $XMAS 🎄❄️</h1>
         <h2>The Official Coin of Christmas!</h2>
         <img src="https://example.com/your-hero-image.jpg" alt="XMAS Coin" class="hero-image"> <!-- Replace with your image URL -->
         <p>Get ready for a festive crypto experience! 🎁✨</p>
+        <div class="countdown" id="countdown">Launching in: <span id="timer"></span></div>
     </header>
-    
-    <section class="story">
-        <h3>About $XMAS</h3>
-        <p>This holiday season, Santa's not just bringing gifts—he's delivering XMAS, the official coin of Christmas! 🎅✨ Whether it's Rudolph lighting the way, the Grinch turning into a crypto enthusiast, or the Snowman stacking coins, the spirit of Christmas has never been this exciting.</p>
-        <p>Stay tuned—the link to invest in XMAS will be uploaded soon! 🎄</p>
-    </section>
 
-    <section class="tales">
-        <h3>Daily Tales of Holiday Magic</h3>
-        <p>Each day will feature a new tale where classic holiday figures come to life in unexpected ways. From Rudolph guiding Santa’s sleigh to the Grinch discovering the wonders of XMAS, join us in celebrating the joy and generosity of the season.</p>
-    </section>
+    <main>
+        <section id="about" class="story">
+            <h3>About $XMAS</h3>
+            <p>This holiday season, Santa's not just bringing gifts—he's delivering XMAS, the official coin of Christmas! 🎅✨ Whether it's Rudolph lighting the way, the Grinch turning into a crypto enthusiast, or the Snowman stacking coins, the spirit of Christmas has never been this exciting.</p>
+            <p>Stay tuned—the link to invest in XMAS will be uploaded soon! 🎄</p>
+        </section>
 
-    <footer>
-        <h4>Follow Us</h4>
-        <p>Stay updated on all things XMAS and schedule your posts to spread the holiday cheer!</p>
-        <div class="social-icons">
-            <a href="https://twitter.com/yourprofile" target="_blank">
-                <img src="https://example.com/twitter-icon.png" alt="Twitter"> <!-- Replace with your image URL -->
-            </a>
-            <a href="https://facebook.com/yourprofile" target="_blank">
-                <img src="https://example.com/facebook-icon.png" alt="Facebook"> <!-- Replace with your image URL -->
-            </a>
-            <a href="https://instagram.com/yourprofile" target="_blank">
-                <img src="https://example.com/instagram-icon.png" alt="Instagram"> <!-- Replace with your image URL -->
-            </a>
-        </div>
-    </footer>
+        <section id="tales" class="tales">
+            <h3>Daily Tales of Holiday Magic</h3>
+            <p>Each day will feature a new tale where classic holiday figures come to life in unexpected ways. From Rudolph guiding Santa’s sleigh to the Grinch discovering the wonders of XMAS, join us in celebrating the joy and generosity of the season.</p>
+        </section>
 
-    <script src="script.js"></script>
-</body>
-</html>
+        <section id="gallery">
+            <h3>Festive Gallery</h3>
+            <div class="gallery">
+                <img src="https://example.com/image1.jpg" alt="Festive Image 1"> <!-- Replace with your image URL -->
+                <img src="https://example.com/image2.jpg" alt="Festive Image 2"> <!-- Replace with your image URL -->
+                <img src="https://example.com/image3.jpg" alt="Festive Image 3"> <!-- Replace with your image URL -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h3>Contact Us</h3>
+            <form class="contact-form" action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required
